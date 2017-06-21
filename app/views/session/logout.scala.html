@@ -1,0 +1,23 @@
+@(currentUser: Option[domain.entity.User])(implicit messages: Messages)
+
+@import helper._
+@implicitField = @{ FieldConstructor(forms.alignedFieldElements.f) }
+
+@main("Welcome to Play", currentUser) {
+    @shared.header("Logout")
+    <div id="content">
+        @currentUser.map { user => 
+            <div class="user--screen_name">
+                @@
+                @user.screenName
+                でログイン中です。
+            </div>
+        }
+        @form(routes.SessionController.destroy(), 'class -> "pure-form pure-form-aligned") {
+            <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">logout</button>
+            </div>
+        }
+    </div>
+    @shared.footer()
+}

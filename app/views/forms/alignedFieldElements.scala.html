@@ -1,0 +1,7 @@
+@(elements: helper.FieldElements)
+<div class="pure-control-group @if(elements.hasErrors) {error}">
+    <label for="@elements.id">@elements.label</label>
+    @elements.input
+    <span class="errors">@elements.errors.mkString(", ")</span>
+    <span class="infos">@elements.infos.mkString(", ")</span> 
+</div>

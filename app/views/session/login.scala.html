@@ -1,0 +1,18 @@
+@(loginForm: Form[domain.entity.User.LoginForm], currentUser: Option[domain.entity.User])(implicit messages: Messages)
+
+@import helper._
+@implicitField = @{ FieldConstructor(forms.alignedFieldElements.f) }
+
+@main("Welcome to Play", currentUser) {
+    @shared.header("Login")
+    <div id="content">
+        @form(action = routes.SessionController.create(), 'class -> "pure-form pure-form-aligned") {
+            @inputText(loginForm("screen_name"))
+            @inputPassword(loginForm("password"))
+            <div class="pure-controls">
+                <button type="submit" class="pure-button pure-button-primary">login</button>
+            </div>
+        }
+    </div>
+    @shared.footer()
+}

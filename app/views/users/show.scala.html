@@ -1,0 +1,9 @@
+@(user: domain.entity.User, currentUser: Option[domain.entity.User])
+
+@main("Welcome to Play", currentUser) {
+    @shared.header("User Account")
+    <div id="content">
+        @user.screenName
+    </div>
+    @shared.footer()
+}

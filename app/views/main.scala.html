@@ -1,0 +1,19 @@
+@(title: String, currentUser: Option[domain.entity.User])(content: Html)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/pure-min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script defer src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            @shared.menu(currentUser)
+            @content
+        </div>
+    </body>
+</html>
